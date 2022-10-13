@@ -1,0 +1,23 @@
+tasks:
+  - name: localstack
+    init: |
+      python -m pip install localstack
+    command: |
+      . ~/.bash_profile
+      docker network create localstack
+      localstack start
+  - name: aws-cli
+    init: |
+      cd /workspace
+      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      unzip awscliv2.zip
+      sudo ./aws/install
+      cd $THEIA_WORKSPACE_ROOT
+      pip install awscli-local
+ports:
+  - port: 3000-8999
+    onOpen: ignore      
+  - port: 53
+    onOpen: ignore      
+  - port: 443
+    onOpen: ignore  
