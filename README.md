@@ -10,8 +10,6 @@ To start using localstack go to the terminal named `aws-cli` and enter the follo
 
 > You need to wait for the LocalStack Server to run, check the localstack terminal tab and make sure its running before executing any of the commands below.
 
-
-
 ## Example:
 
 ### Create an S3 Bucket

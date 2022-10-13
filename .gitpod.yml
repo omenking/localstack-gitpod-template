@@ -1,5 +1,9 @@
 tasks:
   - name: localstack
+    env:
+      AWS_ACCESS_KEY_ID: "test"
+      AWS_SECRET_ACCESS_KEY: "test"
+      AWS_DEFAULT_REGION: "us-east-1"
     init: |
       python -m pip install localstack
     command: |
@@ -7,6 +11,10 @@ tasks:
       docker network create localstack
       localstack start
   - name: aws-cli
+    env:
+      AWS_ACCESS_KEY_ID: "test"
+      AWS_SECRET_ACCESS_KEY: "test"
+      AWS_DEFAULT_REGION: "us-east-1"
     init: |
       cd /workspace
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
